@@ -9,6 +9,7 @@ pylint = "*"
 [packages]
 flask = "*"
 flask-sqlalchemy = "*"
+pyopenssl = "*"
 
 [requires]
 python_version = "3.7"
