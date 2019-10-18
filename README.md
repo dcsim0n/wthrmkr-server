@@ -13,25 +13,28 @@ Weather for the Maker in all of us
 ## Data
 
 Data from a station might look like this
-```"locations": 
-[
-  { 
-    "name": "kitchen", 
-    data: [
-      { "type": "temperature", "value": "85.2" },
-      { "type": "humidity", "value": "62.0" },
-      { "type": "wind_speed", "value": "0" }
-    ]
-  },
-  { 
-    "name": "patio", 
-    data: [
-      { "type": "temperature", "value": "90.2" },
-      { "type": "humidity", "value": "72.0" },
-      { "type": "wind_speed", "value": "10" }
-    ]
-  }
-] ```
+```python
+
+data = {"locations": 
+  [
+    { 
+      "name": "kitchen", 
+      data: [
+        { "type": "temperature", "value": "85.2" },
+        { "type": "humidity", "value": "62.0" },
+        { "type": "wind_speed", "value": "0" }
+      ]
+    },
+    { 
+      "name": "patio", 
+      data: [
+        { "type": "temperature", "value": "90.2" },
+        { "type": "humidity", "value": "72.0" },
+        { "type": "wind_speed", "value": "10" }
+      ]
+    }
+  ] 
+```
 
 
 ## Model Heirarchy
