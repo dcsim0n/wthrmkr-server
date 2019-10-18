@@ -43,6 +43,7 @@ data = {"locations":
 
 Sensor class would be abstract
 
+```
 Station Model
     |
     V
@@ -53,7 +54,7 @@ Location Model
     |
     V
 [ Concrete Service Model.. ] <-- Abstract Service class
-
+```
 
 ## Model Interfaces
 
