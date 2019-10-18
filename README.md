@@ -13,7 +13,8 @@ Weather for the Maker in all of us
 ## Data
 
 Data from a station might look like this
-```"locations": [
+```"locations": 
+[
   { 
     "name": "kitchen", 
     data: [
@@ -31,3 +32,41 @@ Data from a station might look like this
     ]
   }
 ] ```
+
+
+## Model Heirarchy
+
+**Sensor names must be unique**
+
+Sensor class would be abstract
+
+Station Model
+    |
+    V
+Location Model
+    |
+    V
+[ Concrete Sensor..] <-- Abstract Sensor class
+    |
+    V
+[ Concrete Service Model.. ] <-- Abstract Service class
+
+
+## Model Interfaces
+
+Sation
++ Has one or many Locations
++ Returns data to the Server
+
+Location
++ groups related Sensors together
++ fills requests for related data from the Station
+
+Concrete Sensors
++ implemention for specific hardware 
++ inherits from a common Abstract Sensor parent 
+
+Concrete Service
++ implementation for specific measurment types ( temperature, wind speed, humidity )
++ inherits from a common Abstract Service parent
+
