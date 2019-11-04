@@ -23,7 +23,7 @@ def not_found(error):
 # from app.mod_auth.controllers import mod_auth as auth_module
 
 # Register blueprint(s)
-app.register_blueprint(auth_module)
+#app.register_blueprint(auth_module)
 # app.register_blueprint(xyz_module)
 # ..
 

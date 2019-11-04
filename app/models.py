@@ -5,34 +5,40 @@
 # Tim Walter and Dana simmons
 #-------------------------------------
 
-from app.app import db
+from app import db
+from flask_sqlalchemy import SQLAlchemy
+
+# class SensorType( db.Model):
+#   id = db.Column( db.Integer , primary_key = True )
+#   name = db.Column( db.String )
+#   sensors = db.relationship('Sensor')
 
 class Measurment(db.Model):
   id = db.Column( db.Integer, primary_key = True )
   name = db.Column( db.String )
-  sensor_id = db.Column( db.Integer )
-  #Stuf stuf stuf
-
+  sensor_id = db.Column( db.Integer, db.ForeignKey('sensor.id'), nullable = False )
+  sensor = db.relationship('Sensor', backref = db.backref('measurements', lazy = True ))
 
 class Station(db.Model):
-  #Stuf stuf stuf
   id = db.Column( db.Integer , primary_key = True )
   name = db.Column( db.String )
+  locations = db.relationship('Location')
   
 class Location(db.Model):
   id = db.Column( db.Integer , primary_key = True )
-  sation_id = db.Column( db.Integer )
   name = db.Column( db.String )
-  #SStuf stuf stuf
+  sation_id = db.Column( db.Integer, db.ForeignKey('station.id'), nullable = False )
+  
+  station = db.relationship('Station')
 
 class Sensor(db.Model):
-  id = db.Column( db.integer , primary_key = True )
-  location_id = db.Column( db.Intger )
-  sensor_type_id = db.Column( db.Integer )
+  id = db.Column( db.Integer , primary_key = True )
+  location_id = db.Column( db.Integer, db.ForeignKey('location.id'), nullable = False )
+  # sensor_type_id = db.Column( db.Integer , db.ForeignKey('sensortype.id'), nullable = False )
 
-class SensorType( db.Model):
-  id = db.Column( db.integer , primary_key = True )
-  name = db.Column( db.String )
- #All the stufy stuf
+  location = db.relationship('Location')
+  # sensortype = db.relationship('SensorType')
+
+ 
 
 
