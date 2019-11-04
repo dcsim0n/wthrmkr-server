@@ -1,7 +1,7 @@
-#
-# WTHR MKR server
-# Tim Walter & Dana Simmons 2019
-#
+#-------------------------------------
+# WTHR-MKR server
+# Tim Walter and Dana simmons
+#-------------------------------------
 
 from app import app
 
