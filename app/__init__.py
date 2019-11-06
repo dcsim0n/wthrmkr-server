@@ -19,8 +19,8 @@ from app.models import Station, Location, Sensor, Measurment
 @app.route('/stations')
 def index():
 
-    data = list(Station.query.all())
-    jsonify( data )
+    data = list( map(lambda s: s.name, Station.query.all()))
+    return jsonify( data )
 
 # Sample HTTP error handling
 @app.errorhandler(404)

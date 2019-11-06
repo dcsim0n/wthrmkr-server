@@ -28,8 +28,8 @@ class Location(db.Model):
   id = db.Column( db.Integer , primary_key = True )
   name = db.Column( db.String )
   sation_id = db.Column( db.Integer, db.ForeignKey('station.id'), nullable = False )
-  
-  sensors = db.relationship('Sensors')
+
+  sensors = db.relationship('Sensor')
   station = db.relationship('Station')
 
 class Sensor(db.Model):
