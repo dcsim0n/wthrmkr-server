@@ -17,8 +17,11 @@ class SensorType( db.Model):
 class Measurment(db.Model):
   id = db.Column( db.Integer, primary_key = True )
   name = db.Column( db.String )
-  sensor_id = db.Column( db.Integer, db.ForeignKey('sensor.id'), nullable = False )
-  sensor = db.relationship('Sensor')
+  location_id = db.Column( db.Integer, db.ForeignKey('location.id'), nullable = False )
+  sensor_type_id = db.Column( db.Integer, db.ForeignKey('sensor_type.id'), nullable = False )
+
+  sensor_type = db.relationship( 'SensorType' )
+  location = db.relationship( 'location' )
 
 class Station(db.Model):
   id = db.Column( db.Integer , primary_key = True )
@@ -42,18 +45,5 @@ class Location(db.Model):
   name = db.Column( db.String )
   sation_id = db.Column( db.Integer, db.ForeignKey('station.id'), nullable = False )
 
-  sensors = db.relationship('Sensor')
-  station = db.relationship('Station')
-
-class Sensor(db.Model):
-  id = db.Column( db.Integer , primary_key = True )
-  location_id = db.Column( db.Integer, db.ForeignKey('location.id'), nullable = False )
-  sensor_type_id = db.Column( db.Integer , db.ForeignKey('sensor_type.id'), nullable = False )
-
   measurments = db.relationship('Measurment')
-  location = db.relationship('Location')
-  sensortype = db.relationship('SensorType')
-
- 
-
-
+  station = db.relationship('Station')
