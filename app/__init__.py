@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 # by modules and controllers
 
 
-from app.models import Station, Location, Sensor, Measurment
+from app.models import Station, Location, Measurment
 @app.route('/stations')
 def index():
 
