@@ -1,4 +1,4 @@
-.vscode
-app.db
-__pycache__
+.vscode/*
+*.db
+*.pyc
 .env
